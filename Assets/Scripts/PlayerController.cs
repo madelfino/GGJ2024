@@ -7,22 +7,21 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Animator anim;
-    private bool p1A, p1X, p2A, p2X, started;
+    private bool p1A, p1X, p2A, p2X;
 
     public void onAwake() {
         p1A = false;
         p2A = false;
         p1X = false;
         p2X = false;
-        started = false;
     }
 
     public void playerAction() {
-        started = true;
         anim.SetBool("p1A", p1A);
         anim.SetBool("p1X", p1X);
         anim.SetBool("p2A", p2A);
         anim.SetBool("p2X", p2X);
+        Debug.Log(nextInputNeeded());
     }
 
     public void p1Aaction(InputAction.CallbackContext context) {
@@ -63,5 +62,33 @@ public class PlayerController : MonoBehaviour
             p2X = false;
         }
         playerAction();
+    }
+
+    public string nextInputNeeded() {
+        if (p1A && !p2A && !p1X && !p2X) {
+            return "Hold Q, Press O";
+        }
+        if (p1A && p2A && !p1X && !p2X) {
+            return "Release Q";
+        }
+        if (!p1A && p2A && !p1X && !p2X) {
+            return "Hold O, Press W";
+        }
+        if (!p1A && p2A && p1X && !p2X) {
+            return "Release O";
+        }
+        if (!p1A && !p2A && p1X && !p2X) {
+            return "Hold W, Press P";
+        }
+        if (!p1A && !p2A && p1X && p2X) {
+            return "Release W";
+        }
+        if (!p1A && !p2A && !p1X && p2X) {
+            return "Hold P, Press Q";
+        }
+        if (p1A && !p2A && !p1X && p2X) {
+            return "Release P";
+        }
+        return "You messed up!";
     }
 }
