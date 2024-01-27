@@ -3,11 +3,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
+[RequireComponent(typeof(AudioSource))]
 public class PlayerController : SubjectOfObserver
 {
     private PlayerControls _playerControls;
     private bool p1A, p1X, p2A, p2X;
+    private AudioSource audioSource;
 
+    [SerializeField] private AudioClip[] fartSteps;
     [SerializeField] private Animator anim;
     [Header("Observers")]
     [SerializeField] private PainScale _painScale;
@@ -21,6 +24,7 @@ public class PlayerController : SubjectOfObserver
         _playerControls.Enable();
         //_playerControls.Player.XBtn.performed += OnXBtn;
         //_playerControls.Player.XBtn.canceled += OnXBtnCanceled;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -52,6 +56,9 @@ public class PlayerController : SubjectOfObserver
         anim.SetBool("p2A", p2A);
         anim.SetBool("p2X", p2X);
         Debug.Log(nextInputNeeded());
+        if (fartSteps.Length > 0) {
+            audioSource.PlayOneShot(fartSteps[UnityEngine.Random.Range(0, fartSteps.Length)]);
+        }
     }
 
     public void p1Aaction(InputAction.CallbackContext context) {
