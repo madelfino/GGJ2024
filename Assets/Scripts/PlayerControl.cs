@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor.Animations;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     public Animator anim;
     private bool p1A, p1X, p2A, p2X;
