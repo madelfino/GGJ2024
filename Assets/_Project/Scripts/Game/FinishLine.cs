@@ -4,7 +4,7 @@ using UnityEngine;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] private GameObject _toiletReward;
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
