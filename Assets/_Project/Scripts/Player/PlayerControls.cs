@@ -25,12 +25,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""id"": ""d0ad361f-c24c-4a89-b772-b683fa794e90"",
+            ""id"": ""2d10fae0-910e-4292-bfff-e8e0634d1297"",
             ""actions"": [
                 {
                     ""name"": ""XBtn"",
                     ""type"": ""Button"",
-                    ""id"": ""c857a427-20f4-49c4-9a3e-a57112e123de"",
+                    ""id"": ""4e82d79e-377a-4e9f-92f9-045865350b86"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -39,7 +39,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""ABtn"",
                     ""type"": ""Button"",
-                    ""id"": ""6b422291-144f-4b6f-8720-92303fc5e3be"",
+                    ""id"": ""8726ee30-ca00-4d05-ac67-80b4f9cf4bba"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -49,7 +49,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""90839db1-aad6-4162-bfc6-4c915af69389"",
+                    ""id"": ""5f8b698c-247d-43c5-be8b-10e817be20df"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""XBtn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93d28cb0-d344-46e1-b2f5-5631a1b48a09"",
                     ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -60,7 +71,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bbd5b496-eb48-4f34-b09e-fa4cf1e89e12"",
+                    ""id"": ""c2195c46-6769-46eb-ae8e-97f83f14c384"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ABtn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dfce26b6-0200-4429-aa3d-afc3b29f42b8"",
                     ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",

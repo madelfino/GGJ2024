@@ -13,11 +13,11 @@ public class PainScale : Observer
     [SerializeField] private float _recoverTime;
     private float _recoverTimeDecreased;
 
+    [FormerlySerializedAs("_scaleSlider")]
     [Header("Pain Scale Slider")]
-    [SerializeField] private Slider _scaleSlider;
+    [SerializeField] private Slider _painScaleSlider;
     [SerializeField] private Image _fillImg;
-    [FormerlySerializedAs("_interpolteValue")] [SerializeField] private float _scaleSpeed;
-    //[SerializeField] private float _interpolateSpeed;
+    [SerializeField] private float _scaleSpeed;
     [Tooltip("time used to identify how long to wait so that the next scale's value would be changed")]
     [SerializeField] private float _scalingNextTime;
     private float _endValue;
@@ -31,13 +31,13 @@ public class PainScale : Observer
     // Update is called once per frame
     void Update()
     {
-        RandomValue();
+        RandomSliderValue();
     }
 
-    private void RandomValue()
+    private void RandomSliderValue()
     {
         //can * speed after interpolate value
-        _scaleSlider.value = Mathf.Lerp(_scaleSlider.value, _endValue,  Mathf.SmoothStep(0.0f, 1.0f, _scaleSpeed/* * _interpolateSpeed*/));
+        _painScaleSlider.value = Mathf.Lerp(_painScaleSlider.value, _endValue,  Mathf.SmoothStep(0.0f, 1.0f, _scaleSpeed));
         if (_recoverTimeDecreased > 0)
         {
             _recoverTimeDecreased -= Time.deltaTime;
@@ -60,7 +60,7 @@ public class PainScale : Observer
 
             SetColor();
 
-            _endValue = (float)Math.Round(_endValue, 1);
+            _endValue = (float)Math.Round(_endValue, 2);
             _scalingNextTimeDecreased = _scalingNextTime;
         }
     }
@@ -91,7 +91,7 @@ public class PainScale : Observer
 
     public override void ReceiveSignal(SubjectOfObserver subject)
     {
-        if (_scaleSlider.value >= 0.7f)
+        if (_painScaleSlider.value >= 0.7f)
         {
             ActionChangeWhileRed();
         }
