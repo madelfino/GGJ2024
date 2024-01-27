@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "p1B",
+                    "name": "p1X",
                     "type": "Button",
                     "id": "310dcd62-a3b3-43b8-98be-54b5a592975e",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "p2B",
+                    "name": "p2X",
                     "type": "Button",
                     "id": "dc15c35d-5588-4752-8fc6-959a4004c22f",
                     "expectedControlType": "Button",
@@ -61,7 +61,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "p1B",
+                    "action": "p1X",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -83,7 +83,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "p2B",
+                    "action": "p2X",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

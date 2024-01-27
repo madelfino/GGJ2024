@@ -7,22 +7,22 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public Animator anim;
-    private bool p1A, p1B, p2A, p2B, started;
+    private bool p1A, p1X, p2A, p2X, started;
 
     public void onAwake() {
         p1A = false;
         p2A = false;
-        p1B = false;
-        p2B = false;
+        p1X = false;
+        p2X = false;
         started = false;
     }
 
     public void playerAction() {
         started = true;
         anim.SetBool("p1A", p1A);
-        anim.SetBool("p1B", p1B);
+        anim.SetBool("p1X", p1X);
         anim.SetBool("p2A", p2A);
-        anim.SetBool("p2B", p2B);
+        anim.SetBool("p2X", p2X);
     }
 
     public void p1Aaction(InputAction.CallbackContext context) {
@@ -35,12 +35,12 @@ public class PlayerController : MonoBehaviour
         playerAction();
     }
 
-    public void p1Baction(InputAction.CallbackContext context) {
+    public void p1Xaction(InputAction.CallbackContext context) {
         if (context.phase == InputActionPhase.Started) {
-            p1B = true;
+            p1X = true;
         }
         if (context.phase == InputActionPhase.Canceled) {
-            p1B = false;
+            p1X = false;
         }
         playerAction();
     }
@@ -55,12 +55,12 @@ public class PlayerController : MonoBehaviour
         playerAction();
     }
 
-    public void p2Baction(InputAction.CallbackContext context) {
+    public void p2Xaction(InputAction.CallbackContext context) {
         if (context.phase == InputActionPhase.Started) {
-            p2B = true;
+            p2X = true;
         }
         if (context.phase == InputActionPhase.Canceled) {
-            p2B = false;
+            p2X = false;
         }
         playerAction();
     }
