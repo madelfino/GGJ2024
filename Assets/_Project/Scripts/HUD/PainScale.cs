@@ -60,7 +60,7 @@ public class PainScale : Observer
 
             SetColor();
 
-            _endValue = (float)Math.Round(_endValue, 2);
+            _endValue = (float)Math.Round(_endValue, 1);
             _scalingNextTimeDecreased = _scalingNextTime;
         }
     }
