@@ -10,7 +10,6 @@ public class PainScale : Observer
 {
     [Tooltip("the time used to let the player breath after loose life (take the wrong action while the scale is red). " +
              "After the set time, the scale can be red again")]
-    [SerializeField] private float _recoverTime;
     private float _recoverTimeDecreased;
 
     [FormerlySerializedAs("_scaleSlider")]
@@ -51,7 +50,7 @@ public class PainScale : Observer
             }
             else if (_endValue >= 0.5f && _endValue < 0.7f)
             {
-                _endValue = Random.Range(0.3f, 1f);
+                _endValue = Random.Range(0.4f, 1f);
             }
             else
             {
@@ -60,7 +59,7 @@ public class PainScale : Observer
 
             SetColor();
 
-            _endValue = (float)Math.Round(_endValue, 2);
+            _endValue = (float)Math.Round(_endValue, 1);
             _scalingNextTimeDecreased = _scalingNextTime;
         }
     }
@@ -69,15 +68,15 @@ public class PainScale : Observer
     {
         if (_endValue >= 0.7f)
         {
-            _fillImg.color = Color.red;
+            _fillImg.color = new Color(0.8980392f,0.2784314f,0.3529412f);
         }
         else if (_endValue >= 0.5f && _endValue < 0.7f)
         {
-            _fillImg.color = Color.yellow;
+            _fillImg.color = new Color(0.9098039f,0.5764706f,0.4705882f);
         }
         else
         {
-            _fillImg.color = Color.green;
+            _fillImg.color = new Color(0.9411765f,0.572549f,0.8823529f);
         }
     }
 
@@ -85,7 +84,7 @@ public class PainScale : Observer
     {
         _recoverTimeDecreased = 3f;
         _endValue = Random.Range(0, 0.5f);
-        _fillImg.color = Color.green;
+        _fillImg.color = new Color(0.9411765f,0.572549f,0.8823529f);
         print("u die by canceled");
     }
 
