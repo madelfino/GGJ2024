@@ -18,6 +18,7 @@ public class DirtSplash : Observer
         else if (_painScaleSlider.value >= 0.7f && _playerHealth.Health == 0)
         {
             //pop up shit screen
+            _firstSplash.SetActive(false);
             _secondSplash.SetActive(true);
         }
     }
