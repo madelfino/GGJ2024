@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using TMPro;
 
 [RequireComponent(typeof(AudioSource))]
 public class PlayerController : SubjectOfObserver
@@ -17,6 +18,7 @@ public class PlayerController : SubjectOfObserver
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private DirtSplash _dirtSplash;
     [SerializeField] private GameState _gameState;
+    [SerializeField] private TextMeshProUGUI _instructionText;
     
     
     private void Awake()
@@ -108,30 +110,34 @@ public class PlayerController : SubjectOfObserver
     }
 
     public string nextInputNeeded() {
+        string instructions = "You messed up!";
         if (p1A && !p2A && !p1X && !p2X) {
-            return "Hold Q, Press O";
+            instructions = "Hold Q, Press O";
         }
         if (p1A && p2A && !p1X && !p2X) {
-            return "Release Q";
+            instructions = "Release Q";
         }
         if (!p1A && p2A && !p1X && !p2X) {
-            return "Hold O, Press W";
+            instructions = "Hold O, Press W";
         }
         if (!p1A && p2A && p1X && !p2X) {
-            return "Release O";
+            instructions = "Release O";
         }
         if (!p1A && !p2A && p1X && !p2X) {
-            return "Hold W, Press P";
+            instructions = "Hold W, Press P";
         }
         if (!p1A && !p2A && p1X && p2X) {
-            return "Release W";
+            instructions = "Release W";
         }
         if (!p1A && !p2A && !p1X && p2X) {
-            return "Hold P, Press Q";
+            instructions = "Hold P, Press Q";
         }
         if (p1A && !p2A && !p1X && p2X) {
-            return "Release P";
+            instructions = "Release P";
         }
-        return "You messed up!";
+        
+        _instructionText.text = instructions;
+
+        return instructions;
     }
 }
