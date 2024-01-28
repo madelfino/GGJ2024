@@ -17,6 +17,13 @@ public class GameState : Observer
     [SerializeField] private PainScale _painScale;
 
     private bool _isGameOver;
+    //public PlayerControls _playerControls;
+
+    private void Awake()
+    {
+        //_playerControls = new PlayerControls();
+    }
+
     private void Update()
     {
         DecreaseTime();
@@ -47,6 +54,7 @@ public class GameState : Observer
         if (_playerHealth && _playerHealth.Health <= 0)
         {
             //pop up game over obj
+            print("Game Over");
             _isGameOver = true;
             StartCoroutine(nameof(GameOver));
         }
@@ -61,6 +69,7 @@ public class GameState : Observer
         yield return null;
         if (_isGameOver)
         {
+            _playerController._playerControls.Player.Disable();
             _playerHealth.enabled = false;
             _playerController.enabled = false;
             _painScale.enabled = false;

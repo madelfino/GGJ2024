@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(AudioSource))]
 public class PlayerController : SubjectOfObserver
 {
-    private PlayerControls _playerControls;
+    public PlayerControls _playerControls;
     private bool p1A, p1X, p2A, p2X;
     private AudioSource audioSource;
 
@@ -67,41 +67,45 @@ public class PlayerController : SubjectOfObserver
     public void p1Aaction(InputAction.CallbackContext context) {
         if (context.phase == InputActionPhase.Started) {
             p1A = true;
+            playerAction();
         }
         if (context.phase == InputActionPhase.Canceled) {
             p1A = false;
+            playerAction();
         }
-        playerAction();
     }
 
     public void p1Xaction(InputAction.CallbackContext context) {
         if (context.phase == InputActionPhase.Started) {
             p1X = true;
+            playerAction();
         }
         if (context.phase == InputActionPhase.Canceled) {
             p1X = false;
+            playerAction();
         }
-        playerAction();
     }
 
     public void p2Aaction(InputAction.CallbackContext context) {
         if (context.phase == InputActionPhase.Started) {
             p2A = true;
+            playerAction();
         }
         if (context.phase == InputActionPhase.Canceled) {
             p2A = false;
+            playerAction();
         }
-        playerAction();
     }
 
     public void p2Xaction(InputAction.CallbackContext context) {
         if (context.phase == InputActionPhase.Started) {
             p2X = true;
+            playerAction();
         }
         if (context.phase == InputActionPhase.Canceled) {
             p2X = false;
+            playerAction();
         }
-        playerAction();
     }
 
     public string nextInputNeeded() {

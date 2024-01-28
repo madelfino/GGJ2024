@@ -9,6 +9,8 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] private GameObject _gameOverCanvas;
     [Tooltip("used to check whether Game Over Canvas is active, to check if the game can be paused or not")]
     [SerializeField] private GameObject _pauseMenuCanvas;
+    [Tooltip("used to check whether Game Over Canvas is active, to check if the game can be paused or not")]
+    [SerializeField] private GameObject _toiletReward;
     private bool _isPaused;
 
     [Header("Script to Stop")] 
@@ -19,19 +21,23 @@ public class MenuButtons : MonoBehaviour
     
     private void Update()
     {
-        if (Keyboard.current[Key.Escape].wasPressedThisFrame && !_gameOverCanvas.activeSelf && !_pauseMenuCanvas.activeSelf && !_isPaused)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            _playerController.enabled = false;
-            _painScale.enabled = false;
-            _pauseMenuCanvas.SetActive(true);
-            _isPaused = true;
-        }
-        else if (Keyboard.current[Key.Escape].wasPressedThisFrame && !_gameOverCanvas.activeSelf && _pauseMenuCanvas.activeSelf && _isPaused)
-        {
-            _playerController.enabled = true;
-            _painScale.enabled = true;
-            _pauseMenuCanvas.SetActive(false);
-            _isPaused = false;
+            if (Keyboard.current[Key.Escape].wasPressedThisFrame && !_gameOverCanvas.activeSelf && !_pauseMenuCanvas.activeSelf 
+                && !_toiletReward.activeSelf && !_isPaused)
+            {
+                _playerController.enabled = false;
+                _painScale.enabled = false;
+                _pauseMenuCanvas.SetActive(true);
+                _isPaused = true;
+            }
+            else if (Keyboard.current[Key.Escape].wasPressedThisFrame && !_gameOverCanvas.activeSelf && _pauseMenuCanvas.activeSelf && _isPaused)
+            {
+                _playerController.enabled = true;
+                _painScale.enabled = true;
+                _pauseMenuCanvas.SetActive(false);
+                _isPaused = false;
+            }
         }
     }
 
