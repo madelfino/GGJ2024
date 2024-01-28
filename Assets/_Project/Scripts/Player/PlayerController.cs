@@ -59,8 +59,12 @@ public class PlayerController : SubjectOfObserver
         anim.SetBool("p2A", p2A);
         anim.SetBool("p2X", p2X);
         Debug.Log(nextInputNeeded());
+        
+    }
+
+    public void moveForward() {
         if (fartSteps.Length > 0) {
-            audioSource.PlayOneShot(fartSteps[UnityEngine.Random.Range(0, fartSteps.Length)], 0.2f);
+            audioSource.PlayOneShot(fartSteps[UnityEngine.Random.Range(0, fartSteps.Length)], 0.2f                                                                                                                                                                                                                                                                                                                                    );
         }
     }
 
