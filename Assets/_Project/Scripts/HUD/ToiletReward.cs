@@ -7,6 +7,10 @@ public class ToiletReward : MonoBehaviour
     [SerializeField] private Vector3 _fullScale;
 
     [SerializeField] private float _inflateSpeed;
+    [Header("Rotated Angle Set Up")]
+    [SerializeField] private float _posXToBe;
+    [SerializeField] private float _posYToBe;
+    [SerializeField] private float _posZToBe;
     
     [Header("Rotated Angle Set Up")]
     [SerializeField] private float _angleXToRotate;
@@ -17,8 +21,7 @@ public class ToiletReward : MonoBehaviour
     {
         print("move");
         Camera.main.GetComponent<CameraController>().SetFollow(false);
-        transform.position =
-            Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 5));
+        transform.position = new Vector3(_posXToBe, _posYToBe, _posZToBe);
     }
 
     private void Update()
